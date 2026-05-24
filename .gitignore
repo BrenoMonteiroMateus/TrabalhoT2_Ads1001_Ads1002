@@ -1,0 +1,25 @@
+# Arquivos compilados do Java
+*.class
+
+# Pasta do Maven (Onde deu o erro da senha)
+target/
+
+# Arquivos de IDE (NetBeans, VS Code, Eclipse)
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.vscode/
+.idea/
+*.settings/
+
+# Arquivos empacotados
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+
+# Logs de erro
+*.log
+hs_err_pid*
