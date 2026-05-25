@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package com.mycompany.ads1001.t2;
 
 /**
@@ -28,23 +25,23 @@ public class TelaInicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         btnAbrirCompra = new javax.swing.JButton();
         btnAbrirProduto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Tela_inicial_maua_na_chapa (2).png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Tela_inicial_maua_na_chapa (2).png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        btnAbrirCompra.setText("jButton2");
+        btnAbrirCompra.setText("\n");
         btnAbrirCompra.addActionListener(this::btnAbrirCompraActionPerformed);
-        getContentPane().add(btnAbrirCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 670, 590, 130));
+        getContentPane().add(btnAbrirCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 370, 80));
 
-        btnAbrirProduto.setText("jButton1");
         btnAbrirProduto.addActionListener(this::btnAbrirProdutoActionPerformed);
-        getContentPane().add(btnAbrirProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 830, 580, 140));
+        getContentPane().add(btnAbrirProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, 370, 90));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -93,6 +90,6 @@ public class TelaInicial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAbrirCompra;
     private javax.swing.JButton btnAbrirProduto;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
