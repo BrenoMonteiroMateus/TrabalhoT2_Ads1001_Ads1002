@@ -28,21 +28,42 @@ public class TelaInicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel2 = new javax.swing.JLabel();
+        btnAbrirCompra = new javax.swing.JButton();
+        btnAbrirProduto = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1023, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 265, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Tela_inicial_maua_na_chapa (2).png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+
+        btnAbrirCompra.setText("jButton2");
+        btnAbrirCompra.addActionListener(this::btnAbrirCompraActionPerformed);
+        getContentPane().add(btnAbrirCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 670, 590, 130));
+
+        btnAbrirProduto.setText("jButton1");
+        btnAbrirProduto.addActionListener(this::btnAbrirProdutoActionPerformed);
+        getContentPane().add(btnAbrirProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 830, 580, 140));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAbrirCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirCompraActionPerformed
+        TelaDePedidos telaPed = new TelaDePedidos();
+        telaPed.setVisible(true);
+        telaPed.setLocationRelativeTo(null);
+
+        this.dispose(); // Fecha APENAS a tela onde o botão foi clicado        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAbrirCompraActionPerformed
+
+    private void btnAbrirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirProdutoActionPerformed
+        CadastroProduto telaCadastro = new CadastroProduto();
+        telaCadastro.setVisible(true);
+        telaCadastro.setLocationRelativeTo(null);
+
+        this.dispose();  // TODO add your handling code here:
+    }//GEN-LAST:event_btnAbrirProdutoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -70,5 +91,8 @@ public class TelaInicial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAbrirCompra;
+    private javax.swing.JButton btnAbrirProduto;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

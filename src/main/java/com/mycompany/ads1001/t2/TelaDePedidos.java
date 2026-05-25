@@ -26,23 +26,27 @@ public class TelaDePedidos extends javax.swing.JFrame {
     };
     tabelaPedidos.setModel(modelo);
     
-     produtos = produtoDAO.listarTodos();
+    // 1. Busca os produtos do banco
+    produtos = Produto.listarTodos();
+    
+    
     cbProduto.removeAllItems();
     for (Produto p : produtos) {
-        cbProduto.addItem(p.getNome());
+        cbProduto.addItem(p); // Passando o objeto 'p' inteiro!
     }
 
     cbProduto.addActionListener(e -> {
-        int idx = cbProduto.getSelectedIndex();
-        if (idx >= 0)
-            precoProduto.setText("R$ " + String.format("%.2f", produtos.get(idx).getPreco()));
+        Produto produtoSelecionado = (Produto) cbProduto.getSelectedItem();
+        if (produtoSelecionado != null) {
+            precoProduto.setText("R$ " + String.format("%.2f", produtoSelecionado.getPreco()));
+        }
     });
 
     if (!produtos.isEmpty())
         precoProduto.setText("R$ " + String.format("%.2f", produtos.get(0).getPreco()));
-
-    
+        
     tabelaPedidos.getTableHeader().setReorderingAllowed(false);
+
 }
     
 
@@ -78,7 +82,7 @@ public class TelaDePedidos extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("PRODUTO:");
 
-        cbProduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbProduto.addActionListener(this::cbProdutoActionPerformed);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("QUANTIDADE:");
@@ -89,7 +93,6 @@ public class TelaDePedidos extends javax.swing.JFrame {
         jLabel3.setText("PREÇO:");
 
         precoProduto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        precoProduto.setText("jLabel4");
 
         btnAdicionarPedido.setText("Adicionar no carrinho");
         btnAdicionarPedido.addActionListener(this::btnAdicionarPedidoActionPerformed);
@@ -148,7 +151,7 @@ public class TelaDePedidos extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 275, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnRemoverPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -255,7 +258,7 @@ public class TelaDePedidos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Carrinho vazio.");
             return;
         }
-        pedidoDAO.salvar(pedido);
+        
         JOptionPane.showMessageDialog(this,
             "Pedido #" + pedido.getId() + " confirmado!\nTotal: R$ "
             + String.format("%.2f", pedido.getTotal()));
@@ -264,6 +267,10 @@ public class TelaDePedidos extends javax.swing.JFrame {
     
                // TODO add your handling code here:
     }//GEN-LAST:event_btnConfirmarPedidoActionPerformed
+
+    private void cbProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbProdutoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -294,7 +301,7 @@ public class TelaDePedidos extends javax.swing.JFrame {
     private javax.swing.JButton btnAdicionarPedido;
     private javax.swing.JButton btnConfirmarPedido;
     private javax.swing.JButton btnRemoverPedido;
-    private javax.swing.JComboBox<String> cbProduto;
+    private javax.swing.JComboBox<Produto> cbProduto;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

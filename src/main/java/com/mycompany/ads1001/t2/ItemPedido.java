@@ -1,7 +1,6 @@
 
 package com.mycompany.ads1001.t2;
 
-
 public class ItemPedido {
     private Produto produto;
     private int quantidade;
@@ -21,3 +20,4 @@ public class ItemPedido {
 
 
 }
+
